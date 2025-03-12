@@ -1,0 +1,237 @@
+/* Sayfanın tamamını kapsayan stil */
+*{
+    overflow: hidden;
+}
+body {
+    display: flex;
+    justify-content: center;  /* Yatayda ortalar */
+    align-items: center;      /* Dikeyde ortalar */
+    max-height: 100vh;        /* Sayfanın yüksekliğini tam al */
+    margin: 0;                /* Sayfa kenar boşluklarını sıfırlar */
+    flex-direction: column;   /* İçerikleri dikey sıraya dizer */
+    background-color: #e0d5d5;  /* Sayfa arka planı */
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1vh;
+    margin-bottom: 0.2vh;
+}
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.4vh;
+    margin-bottom: 0.4vh;
+}
+
+.box {
+    display: flex;
+    width: 4vh;
+    height: 4vh;
+
+    border: 1px solid gray;
+    justify-content: center;
+    align-items: center;
+    line-height: 3vh;
+    font-size: 2.5vh;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+
+.game-container{
+    width: 100%;
+    max-height: 90vh;
+    margin-top: 1vh;
+}
+
+
+/* Oyun tahtasını ortalar */
+#game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+/* Her satırdaki hücreleri yatay sıraya dizer */
+.row {
+    display: grid;
+    grid-template-columns: repeat(var(--wordLength), minmax(7vh, 1fr)); /* Kelime uzunluğuna göre sütunları ayarlar */
+    gap: 0.4vh;
+    margin-bottom: 0.5vh;
+}
+
+/* Hücrelerin stilini belirler */
+.cell {
+    box-sizing: border-box;
+    border: 0.1vh solid black;
+    text-align: center;
+    width: 100%; /* Grid hücresine tam oturması için */
+    height: 7vh;
+
+    text-align: center;
+    line-height: 7vh;
+    font-size: 4vh;
+    cursor: pointer;
+
+}
+.cell:hover {
+    background-color: #f0f0f0;
+}
+/* Doğru harf (yeşil) */
+.cell.correct {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Yanlış pozisyondaki harf (turuncu) */
+.cell.present {
+    background-color: orange;
+    color: white;
+}
+
+/* Kelimede olmayan harf (gri) */
+.cell.absent {
+    background-color: grey;
+    color: white;
+}
+
+
+/* Klavye tuşlarının stilini belirler 
+
+/* Klavye kısmını ortalar */
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(6, 5.5vh); /* 6 sütunlu grid */
+    gap: 0.5vh;
+    margin-top: 2vh;
+    justify-content: center;
+}
+
+/* Klavye tuşlarının stilini belirler */
+.key {
+    width: 100%; /* Grid hücresine tam oturması için */
+    height: 5vh;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    border-radius: 1vh;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 3vh;
+    cursor: pointer;
+}
+
+/* Enter tuşu en altta tam genişlikte olacak */
+.enter-key {
+    width: 35.5vh;
+    /* grid-column: span 6; Tüm 6 sütunu kapla */
+    background-color: #4CAF50;
+    margin-top: 1vh;
+    font-size: 3vh;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.backspace{
+    background-color: #134358;
+    color: #fff
+}
+
+.cell.disabled {
+    /*background-color: #e0e0e0;  Gri ton */
+    /*color: #808080;            Daha açık yazı rengi */
+    pointer-events: none;     /* Tıklama ve etkileşim devre dışı */
+}
+.button-container{
+    display: flex;
+    width: 35.5vh;
+    margin: 0 auto;
+}
+#new-game {
+
+    padding: 0;
+    width: 17vh;
+    height: 5vh;
+    display: block;
+    margin-top: 1vh;
+    margin-right:1.5vh;
+    background-color: #ae4f4c;  /* Arka plan rengini değiştir */
+    color: white;  /* Metin rengini beyaz yap */
+    font-weight: bold;  /* Metni kalın yap */
+    line-height: 5vh;
+    font-size: 2.5vh;
+    border: none;
+    border-radius: 1vh;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+#home-page{
+    padding: 0;
+    width: 35.5vh;
+    height: 5vh;
+    display: block;
+    margin-top: 1vh;
+    padding: none;
+    background-color: rgb(206, 155, 59);  /* Arka plan rengini değiştir */
+    color: white;  /* Metin rengini beyaz yap */
+    font-weight: bold;  /* Metni kalın yap */
+    line-height: 5vh;
+    font-size: 2.5vh;
+    border: none;
+    border-radius: 1vh;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.gc-button:hover{
+    opacity: 0.8;
+}
+
+/* İndex html css*/
+.option-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20vh;
+
+
+}
+
+
+.button {
+    display: block;
+    width: 30vh;
+    margin: 2vh auto;
+    padding: 15px;
+    font-size: 4vh;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.four {
+    background-color: lightblue;
+}
+
+.five {
+    background-color: lightgreen;
+}
+
+.six {
+    background-color: lightcoral;
+}
