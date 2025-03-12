@@ -668,10 +668,6 @@ homePageButton.addEventListener("click", () => {
     // Oyunu yenile
     window.location.href = "index.html";
 });
-function setFullHeight() {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-}
-window.addEventListener('resize', setFullHeight);
-setFullHeight();
+
 // Oyun başlatma
 initializeGame();
